@@ -3,7 +3,7 @@
 
 # # 2D subduction-LayOut
 
-# In[9]:
+# In[26]:
 
 
 import UWGeodynamics as GEO
@@ -11,7 +11,7 @@ import numpy as np
 import glucifer
 
 
-# In[10]:
+# In[27]:
 
 
 #Geometry functions- This is intented to be a fuctions module to evealuate models with distint geometries
@@ -63,7 +63,7 @@ def SubductionCreator2D(Model,y0,thickness, dipAngle, dipLength, maxLength, orie
     #Subducting plate
     subducting = subducting1 + subducting2
     #Calculation of Overriding plate geometry based in subducting plate geometry
-    decoup=60* u.kilometer
+    decoup=20* u.kilometer
     backd=400* u.kilometer
     #Flat Segment Vertices 
     f1=(X0,y0)
@@ -101,14 +101,14 @@ def SubductionCreator2D(Model,y0,thickness, dipAngle, dipLength, maxLength, orie
 #Overriding plate creator
 
 
-# In[11]:
+# In[28]:
 
 
 #Units
 u = GEO.UnitRegistry
 
 
-# In[12]:
+# In[29]:
 
 
 #Scalling 1
@@ -129,7 +129,7 @@ u = GEO.UnitRegistry
 #GEO.scaling_coefficients["[temperature]"] = KT
 
 
-# In[13]:
+# In[30]:
 
 
 #Scalling 2-- Stokes sink velocity
@@ -146,7 +146,7 @@ GEO.scaling_coefficients["[time]"] = Kt
 GEO.scaling_coefficients["[mass]"]= KM
 
 
-# In[14]:
+# In[31]:
 
 
 #Model Dimensions
@@ -164,21 +164,21 @@ Model.outputDir = "outputs_SubductionOne"
 #Model.capacity    = 1000. * u.joule / (u.kelvin * u.kilogram)
 
 
-# In[15]:
+# In[32]:
 
 
 #Calculate Geometry
-geometry=SubductionCreator2D(Model,0,100,30,150,1700,1)
+geometry=SubductionCreator2D(Model,0,100,30,300,1700,1)
 #Materials in the model
 #stickyAir = Model.add_material(name="Air", shape=GEO.shapes.Layer(top=Model.top, bottom=0. * u.kilometer))
 Mantle = Model.add_material(name="Mantle", shape=GEO.shapes.Layer(top=0.*u.kilometer, bottom=Model.bottom))
 OLithosphere = Model.add_material(name="Subducting Plate", shape=geometry[0])
-#Clithosphere= Model.add_material(name="Overriding plate", shape=geometry[1])
+Clithosphere= Model.add_material(name="Overriding plate", shape=geometry[1])
 #decoup= Model.add_material(name="Decoupling", shape=geometry[2])
 #backstop=Model.add_material(name="Back Stop", shape=geometry[3])
 
 
-# In[16]:
+# In[33]:
 
 
 #Preview of 2D materials-Materials Field (from swarm)
@@ -187,13 +187,13 @@ Fig.Points(Model.swarm, Model.materialField,fn_size=2.0, discrete=True,colours='
 Fig.show()
 
 
-# In[17]:
+# In[34]:
 
 
 #Tracers
 
 
-# In[18]:
+# In[35]:
 
 
 #Tracers Plot
@@ -205,7 +205,7 @@ Fig.show()
 
 
 
-# In[19]:
+# In[36]:
 
 
 #Viscosities Registry
@@ -214,12 +214,12 @@ rh = GEO.ViscousCreepRegistry()
 #stickyAir.viscosity = 1e19 * u.pascal * u.second
 #decoup.viscosity= 1.4e19 * u.pascal * u.second
 Mantle.viscosity =  1.4e19 * u.pascal * u.second#rh.Karato_and_Wu_1990# #
-OLithosphere.viscosity = 200*1.4e21 * u.pascal * u.second
-#Clithosphere.viscosity= 1.4e19 * u.pascal * u.second#1.4e23 * u.pascal * u.second#rh.Wang_et_al_2012 #
+OLithosphere.viscosity = 1.4e21 * u.pascal * u.second
+Clithosphere.viscosity= 200*1.4e19 * u.pascal * u.second#1.4e23 * u.pascal * u.second#rh.Wang_et_al_2012 #
 #backstop.viscosity=1e30 * u.pascal * u.second
 
 
-# In[20]:
+# In[40]:
 
 
 #Plasticity Registry
@@ -233,7 +233,7 @@ Clithosphere.plasticity = GEO.VonMises(cohesion=48. * u.megapascal)
 #decoup.plasticity=GEO.VonMises(cohesion=5. * u.megapascal)
 
 
-# In[21]:
+# In[41]:
 
 
 #Density
@@ -241,11 +241,11 @@ Clithosphere.plasticity = GEO.VonMises(cohesion=48. * u.megapascal)
 #decoup.density=3300. * u.kilogram / u.metre**3
 Mantle.density = 3300. * u.kilogram / u.metre**3
 OLithosphere.density =3400. * u.kilogram / u.metre**3
-#Clithosphere.density=3300. * u.kilogram / u.metre**3#2600. * u.kilogram / u.metre**3
+Clithosphere.density=2700. * u.kilogram / u.metre**3#2600. * u.kilogram / u.metre**3
 #backstop.density=2700. * u.kilogram / u.metre**3
 
 
-# In[22]:
+# In[42]:
 
 
 #Density Field
@@ -254,7 +254,7 @@ Fig.Points(Model.swarm, GEO.Dimensionalize(Model.densityField, u.kilogram / u.me
 Fig.show()
 
 
-# In[23]:
+# In[43]:
 
 
 #Viscosity Field
@@ -263,7 +263,7 @@ Fig.Points(Model.swarm, GEO.Dimensionalize(Model.viscosityField, u.pascal * u.se
 Fig.show()
 
 
-# In[24]:
+# In[44]:
 
 
 #Boundary Velocities- Subduction here is automatic.
@@ -278,7 +278,7 @@ Model.set_velocityBCs(left=[0., None],
                       top=[None, 0.])
 
 
-# In[25]:
+# In[45]:
 
 
 #Model Inicialization
@@ -299,7 +299,7 @@ GEO.rcParams["initial.nonlinear.tolerance"] = 1e-4
 
 #Running Model
 #!rm -rf output_FirstSubduction/
-Model.run_for(duration=10*u.megayear, dt=0.5*u.megayear, checkpoint_interval=0.1*u.megayear,restartStep=False)
+Model.run_for(duration=40*u.megayear, dt=0.5*u.megayear, checkpoint_interval=0.1*u.megayear,restartStep=False)
 #Model.run_for(nstep=10, checkpoint_interval=0.1*u.megayear,restartStep=False)
 
 
@@ -351,12 +351,12 @@ Fig.show()
 
 # # Parallel Run
 
-# In[36]:
+# In[25]:
 
 
 #Convert Script to .py
 
-#get_ipython().system('jupyter nbconvert --to=python MyFirstModel.ipynb')
+get_ipython().system('jupyter nbconvert --to=python MyFirstModel.ipynb')
 
 
 # In[ ]:
@@ -364,7 +364,7 @@ Fig.show()
 
 #Run Script
 
-#get_ipython().system('mpirun -np 4 python MyFirstModel.py')
+get_ipython().system('mpirun -np 4 python MyFirstModel.py')
 
 
 # In[ ]:
