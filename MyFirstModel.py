@@ -214,7 +214,7 @@ rh = GEO.ViscousCreepRegistry()
 #stickyAir.viscosity = 1e19 * u.pascal * u.second
 #decoup.viscosity= 1.4e19 * u.pascal * u.second
 Mantle.viscosity =  1.4e19 * u.pascal * u.second#rh.Karato_and_Wu_1990# #
-OLithosphere.visco sity = 200*1.4e21 * u.pascal * u.second
+OLithosphere.viscosity = 200*1.4e21 * u.pascal * u.second
 #Clithosphere.viscosity= 1.4e19 * u.pascal * u.second#1.4e23 * u.pascal * u.second#rh.Wang_et_al_2012 #
 #backstop.viscosity=1e30 * u.pascal * u.second
 
@@ -229,7 +229,7 @@ OLithosphere.visco sity = 200*1.4e21 * u.pascal * u.second
 #Clithosphere.plasticity = pl.Huismans_et_al_2011_Crust
 #Mantle.plasticity = pl.Huismans_et_al_2011_Crust
 OLithosphere.plasticity = GEO.VonMises(cohesion=48. * u.megapascal)
-#Clithosphere.plasticity = GEO.VonMises(cohesion=48. * u.megapascal)
+Clithosphere.plasticity = GEO.VonMises(cohesion=48. * u.megapascal)
 #decoup.plasticity=GEO.VonMises(cohesion=5. * u.megapascal)
 
 
