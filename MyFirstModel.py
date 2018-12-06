@@ -356,7 +356,7 @@ Fig.show()
 
 #Convert Script to .py
 
-get_ipython().system('jupyter nbconvert --to=python MyFirstModel.ipynb')
+#get_ipython().system('jupyter nbconvert --to=python MyFirstModel.ipynb')
 
 
 # In[ ]:
@@ -364,7 +364,7 @@ get_ipython().system('jupyter nbconvert --to=python MyFirstModel.ipynb')
 
 #Run Script
 
-get_ipython().system('mpirun -np 4 python MyFirstModel.py')
+#get_ipython().system('mpirun -np 4 python MyFirstModel.py')
 
 
 # In[ ]:
