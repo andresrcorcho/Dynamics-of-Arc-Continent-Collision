@@ -156,7 +156,7 @@ Model = GEO.Model(elementRes=(150, 150),
                   gravity=(0.0, -9.81 * u.meter / u.second**2))
 
 #Model Output Folder
-Model.outputDir = "outputs_SubductionOne"
+Model.outputDir = "outputs_SubductionOnePure"
 
 #Model Thermodynamics
 #Model.diffusivity = 1e-6 * u.metre**2 / u.second 

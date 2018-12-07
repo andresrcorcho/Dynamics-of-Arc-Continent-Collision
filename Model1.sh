@@ -1,10 +1,10 @@
 #!/bin/bash
 #PBS -P m18
 #PBS -q express
-#PBS -l walltime=00:59:00
+#PBS -l walltime=01:59:00
 #PBS -l mem=128GB
 #PBS -l jobfs=1GB
-#PBS -l ncpus=20
+#PBS -l ncpus=32
 ## For licensed software, you have to specify it to get the job running. For unlicensed software, you should also specify$
 #PBS -l software=my_program
 ## The job will be executed from current working directory instead of home.
