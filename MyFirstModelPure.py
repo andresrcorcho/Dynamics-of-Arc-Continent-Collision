@@ -172,7 +172,7 @@ geometry=SubductionCreator2D(Model,0,100,30,300,1700,1)
 #stickyAir = Model.add_material(name="Air", shape=GEO.shapes.Layer(top=Model.top, bottom=0. * u.kilometer))
 Mantle = Model.add_material(name="Mantle", shape=GEO.shapes.Layer(top=0.*u.kilometer, bottom=Model.bottom))
 OLithosphere = Model.add_material(name="Subducting Plate", shape=geometry[0])
-Clithosphere= Model.add_material(name="Overriding plate", shape=geometry[1])
+#Clithosphere= Model.add_material(name="Overriding plate", shape=geometry[1])
 #decoup= Model.add_material(name="Decoupling", shape=geometry[2])
 #backstop=Model.add_material(name="Back Stop", shape=geometry[3])
 
@@ -214,7 +214,7 @@ rh = GEO.ViscousCreepRegistry()
 #decoup.viscosity= 1.4e19 * u.pascal * u.second
 Mantle.viscosity =  1.4e19 * u.pascal * u.second#rh.Karato_and_Wu_1990# #
 OLithosphere.viscosity = 1.4e21 * u.pascal * u.second
-Clithosphere.viscosity= 200*1.4e21 * u.pascal * u.second#1.4e23 * u.pascal * u.second#rh.Wang_et_al_2012 #
+#Clithosphere.viscosity= 200*1.4e21 * u.pascal * u.second#1.4e23 * u.pascal * u.second#rh.Wang_et_al_2012 #
 #backstop.viscosity=1e30 * u.pascal * u.second
 
 
@@ -228,7 +228,7 @@ Clithosphere.viscosity= 200*1.4e21 * u.pascal * u.second#1.4e23 * u.pascal * u.s
 #Clithosphere.plasticity = pl.Huismans_et_al_2011_Crust
 #Mantle.plasticity = pl.Huismans_et_al_2011_Crust
 OLithosphere.plasticity = GEO.VonMises(cohesion=48. * u.megapascal)
-Clithosphere.plasticity = GEO.VonMises(cohesion=48. * u.megapascal)
+#Clithosphere.plasticity = GEO.VonMises(cohesion=48. * u.megapascal)
 #decoup.plasticity=GEO.VonMises(cohesion=5. * u.megapascal)
 
 
@@ -240,7 +240,7 @@ Clithosphere.plasticity = GEO.VonMises(cohesion=48. * u.megapascal)
 #decoup.density=3300. * u.kilogram / u.metre**3
 Mantle.density = 3300. * u.kilogram / u.metre**3
 OLithosphere.density =3400. * u.kilogram / u.metre**3
-Clithosphere.density=2700. * u.kilogram / u.metre**3#2600. * u.kilogram / u.metre**3
+#Clithosphere.density=2700. * u.kilogram / u.metre**3#2600. * u.kilogram / u.metre**3
 #backstop.density=2700. * u.kilogram / u.metre**3
 
 
