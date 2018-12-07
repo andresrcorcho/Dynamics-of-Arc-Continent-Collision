@@ -15,7 +15,7 @@ module load pbs dot gcc/5.2.0 hdf5/1.10.2p petsc/3.8.4 swig/3.0.12 python/2.7.11
 source /home/563/ac9890/python-2.7.11-venv/bin/activate
 
 MODELNAME="SubductionFirst"
-OOUTPUTPATH=`pwd`
+OOUTPUTPATH="/short/m18/ac9890/Underworld-Codes/CodesOutput"
 SCRIPT="MyFirstModelPure.py"
 
 mpiexec --mca mpi_warn_on_fork 0 --mca opal_abort_print_stack 1 --mca mpi_param_check 1 \
