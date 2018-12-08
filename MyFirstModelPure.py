@@ -150,7 +150,7 @@ GEO.scaling_coefficients["[mass]"]= KM
 
 
 #Model Dimensions
-Model = GEO.Model(elementRes=(1500, 1500),
+Model = GEO.Model(elementRes=(2000, 2000),
                   minCoord=(-1500. * u.kilometer, -700.0 * u.kilometer), 
                   maxCoord=(1500. * u.kilometer, 0.0 * u.kilometer),
                   gravity=(0.0, -9.81 * u.meter / u.second**2))
