@@ -150,13 +150,13 @@ GEO.scaling_coefficients["[mass]"]= KM
 
 
 #Model Dimensions
-Model = GEO.Model(elementRes=(150, 150), 
+Model = GEO.Model(elementRes=(1500, 1500),
                   minCoord=(-1500. * u.kilometer, -700.0 * u.kilometer), 
                   maxCoord=(1500. * u.kilometer, 0.0 * u.kilometer),
                   gravity=(0.0, -9.81 * u.meter / u.second**2))
 
 #Model Output Folder
-Model.outputDir = "outputs_SubductionOne"
+Model.outputDir = "outputs_SubductionOverriding"
 
 #Model Thermodynamics
 #Model.diffusivity = 1e-6 * u.metre**2 / u.second 

@@ -150,13 +150,13 @@ GEO.scaling_coefficients["[mass]"]= KM
 
 
 #Model Dimensions
-Model = GEO.Model(elementRes=(150, 150), 
+Model = GEO.Model(elementRes=(1500, 1500),
                   minCoord=(-1500. * u.kilometer, -700.0 * u.kilometer), 
                   maxCoord=(1500. * u.kilometer, 0.0 * u.kilometer),
                   gravity=(0.0, -9.81 * u.meter / u.second**2))
 
 #Model Output Folder
-Model.outputDir = "outputs_SubductionOnePure"
+Model.outputDir = "outputs_SubductionSimple"
 
 #Model Thermodynamics
 #Model.diffusivity = 1e-6 * u.metre**2 / u.second 
@@ -298,7 +298,7 @@ GEO.rcParams["initial.nonlinear.tolerance"] = 1e-4
 
 #Running Model
 #!rm -rf output_FirstSubduction/
-Model.run_for(duration=40*u.megayear, dt=0.5*u.megayear, checkpoint_interval=0.1*u.megayear,restartStep=False)
+Model.run_for(duration=40*u.megayear, dt=0.1*u.megayear, checkpoint_interval=0.1*u.megayear,restartStep=False)
 #Model.run_for(nstep=10, checkpoint_interval=0.1*u.megayear,restartStep=False)
 
 
@@ -350,7 +350,15 @@ Fig.show()
 
 # # Parallel Run
 
-# In[46]:
+# In[1]:
 
 
 #Convert Script to .py
+
+
+
+# In[ ]:
+
+
+
+
