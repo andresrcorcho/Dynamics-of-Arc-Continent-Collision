@@ -11,4 +11,4 @@ Arc-continent collision is a multi-stage process where the intra-oceanic crust c
 
 ### This Repository:
 
-Contains the original notebooks  scripts used to ran the numerical simulations presented in the paper: "Dynamics of arc-continent collision: the role of lithospheric-mantle dynamics on controlling the evolution of stress regime", within the folder "Arc-continent collision". Additionally, it contains the measured kinematics and viscous dissipation data within the "Kinematics_data" and "Viscous", that can be processed with the scripts within the folder "Scripts for creating figures".
+Contains the original notebooks  scripts used to ran the numerical simulations presented in the paper: "Dynamics of arc-continent collision: the role of lithospheric-mantle dynamics on controlling the evolution of stress regime", within the folder "Arc-continent collision". Additionally, it contains the measured kinematics and viscous dissipation data within the "Kinematics_data" and "Viscouss_dissipation_data", that can be processed with the scripts within the folder "Scripts for creating figures".
