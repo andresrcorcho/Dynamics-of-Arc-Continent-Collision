@@ -8,8 +8,7 @@ Arc-continent collision is a multi-stage process where the first-order controls 
 
 
 <img src="./graphic_abstract.png" alt="Drawing" style="width: 1500px;/">
-<img src="./StrainRate.png" alt="Drawing" style="width: 1200px;/">
-<img src="./MField.png" alt="Drawing" style="width: 1200px;/">
+
 
 ### This Repository:
 
