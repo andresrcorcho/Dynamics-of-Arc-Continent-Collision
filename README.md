@@ -1,4 +1,4 @@
-# Dynamics of arc-continent collision: the role of lithospheric-mantle dynamics on controlling the evolution of stress regime
+# The role of lithospheric-deep mantle interactions on the style and stress evolution of arc-continent collision
 
 [![DOI](https://zenodo.org/badge/160595955.svg)](https://zenodo.org/badge/latestdoi/160595955)
 
